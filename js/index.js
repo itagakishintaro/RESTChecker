@@ -2,24 +2,30 @@
     'use strict';
     $( () => {
         $( '#send' ).on( 'click', () => {
-
-            console.log( $( '#body' ).val() );
-
+            var body = '';
+            if ( $( '#body' ).val() ) {
+                body = JSON.parse( $( '#body' ).val() );
+            }
+            $( '#response' ).empty();
             $.ajax( {
                 type: $( '#method' ).val(),
                 url: $( '#url' ).val(),
-                data: $( '#body' ).val(),
+                data: body,
                 success: ( res ) => {
-                    console.log( res );
-                    $( '#response' ).text( res );
-                    $( "html,body" ).animate( {
-                        scrollTop: $( document ).height()
-                    }, 'slow' );
+                    $( '#response' ).text( JSON.stringify( res ) );
+                    scrollBottom();
                 },
                 error: ( e ) => {
-                    console.log( e );
+                    $( '#response' ).text( JSON.stringify( e ) );
+                    scrollBottom();
                 }
             } );
         } );
     } );
+
+    var scrollBottom = () => {
+        $( "html,body" ).animate( {
+            scrollTop: $( document ).height()
+        }, 'slow' );
+    };
 } )();
