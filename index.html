@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>REST Checker</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+
+  <body>
+    <h1>REST Checker</h1>
+
+    <label for="url">URL</label>
+    <input type="text" id="url" class="full-width">
+
+    <label for="method">Method Select</label>
+    <select id="method">
+      <option value="GET" selected>GET</option>
+      <option value="POST">POST</option>
+      <option value="PUT">PUT</option>
+      <option value="DELETE">DELETE</option>
+    </select>
+
+    <label for="body">Body</label>
+    <textarea rows="20" id="body" class="full-width"></textarea>
+
+    <div id="actions" class="actions">
+      <button type="button" id="send">Send</button>
+    </div>
+
+    <hr>
+
+    <label for="response">Response</label>
+    <textarea rows="20" id="response" class="full-width"></textarea>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+      window.$ = window.jQuery = require('jquery');
+    </script>
+    <script src="js/index.js"></script>
+  </body>
+
+</html>
