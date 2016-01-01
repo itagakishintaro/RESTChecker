@@ -4,35 +4,52 @@
   <head>
     <meta charset="UTF-8">
     <title>REST Checker</title>
+    <link rel="stylesheet" href="css/photon.min.css">
     <link rel="stylesheet" href="css/index.css">
   </head>
 
   <body>
-    <h1>REST Checker</h1>
+    <div class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title">REST Checker</h1>
+      </header>
 
-    <label for="url">URL</label>
-    <input type="text" id="url" class="full-width">
-
-    <label for="method">Method Select</label>
-    <select id="method">
-      <option value="GET" selected>GET</option>
-      <option value="POST">POST</option>
-      <option value="PUT">PUT</option>
-      <option value="DELETE">DELETE</option>
-    </select>
-
-    <label for="body">Body</label>
-    <a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON" style="font-size: small;">Write JSON text.</a>
-    <textarea rows="20" id="body" class="full-width" placeholder="Property names must be double-quoted strings; trailing commas are forbidden."></textarea>
-
-    <div id="actions" class="actions">
-      <button type="button" id="send">Send</button>
+      <div class="window-content">
+        <div class="pane-group">
+          <div class="pane">
+            <div class="padded-more">
+              <div class="form-group">
+                <label for="url">URL</label>
+                <input type="text" id="url" class="form-control">
+              </div>
+              <div class="form-group">
+                <label for="method">Method Select</label>
+                <select id="method" class="form-control">
+                  <option value="GET" selected>GET</option>
+                  <option value="POST">POST</option>
+                  <option value="PUT">PUT</option>
+                  <option value="DELETE">DELETE</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="body">Body (<a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON" style="font-size: small;">Write JSON text.</a>)</label>
+                <textarea rows="10" id="body" class="form-control" placeholder="Property names must be double-quoted strings; trailing commas are forbidden."></textarea>
+              </div>
+              <div class="form-group">
+                <div id="actions" class="actions">
+                  <button type="button" id="send" class="btn btn-form btn-primary">Send</button>
+                </div>
+              </div>
+              <hr>
+              <div class="form-group">
+                <label for="response">Response</label>
+                <textarea rows="10" id="response" class="form-control"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <hr>
-
-    <label for="response">Response</label>
-    <textarea rows="20" id="response" class="full-width"></textarea>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script>
